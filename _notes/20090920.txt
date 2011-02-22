@@ -1,0 +1,17 @@
+Scenario A
+
+Author creates card
+Card is locked - no more editing
+Author sends to signers a "signers URL' known only to signers
+Signers sign card
+Author sends link to recipient w/"published URL" known only to author
+Once link sent to recipient, signatures are locked
+
+Scenario B
+
+Author creates card w/passcode
+Card is locked - no more editing
+Author signs card
+Author sends to signers a "signers URL' known only to signers
+Author sends card
+Signatures are locked

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Signature Card</title>
+
+
+<link href="/stylesheets/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/javascripts/prototype.js"></script>
+
+
+</head>
+<body>
+<%# 
+
+A. Not published and user is the author
+#B. Not published and user is not the author
+#C. Published
+
+#%>
+
+<% unless @card.published %>
+<div id="publish_tools">
+<a>Send this card</a>
+<% form_for :card, @card, :url => card_path(@card[:uuid]) do |f| %>
+<% f.label(:card, :passcode) %>
+<%= f.text_field :passcode, :value => '' %>
+<%= submit_tag 'Send', {:id => 'signature_submit'} %>
+<% end %>
+<% end %>
+</div>
+
+
+<%= yield %>
+
+</body>
+</html>
+
+

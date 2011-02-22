@@ -1,0 +1,16 @@
+<div id='new_card'>
+	<h1>New Card</h1>
+	
+	<div id='card'>
+	
+	
+	<% form_for :card, @card, :url => { :action => "create" } do |f| %>
+			<%= f.text_field :heading, {:id => 'heading'}%>
+			<%= f.text_area :body, {:id => 'body', :cols => '30'} %>
+			<%= f.text_field :name, {:id => 'name'}%> 
+			<%= f.text_field :passcode, {:id => 'passcode'}%>
+			<%= submit_tag 'Create' %>
+	<% end %>
+	</div>
+
+</div>

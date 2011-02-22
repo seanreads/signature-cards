@@ -1,0 +1,56 @@
+body{margin:0;background: url('/images/back.png') #eee;}
+
+/* Edit Colors 
+
+#d7c700
+
+*/
+
+
+/* Typography */
+p, h1, h2, h3, h4, h5, h6 {margin:0;}
+
+/* New Card */
+
+h1 {position:absolute;}
+#new_card {width:400px;}
+
+/* Card Layout */
+
+#card {width: 704px; height: 499px;background: url('/images/card.png') no-repeat;padding: 10px;margin: 100px auto 0;position:relative;}
+
+#heading {font-size:40px; font-family:Helvetica; font-weight:bold;}
+#heading p {position:absolute;text-align: center;width:100%;margin:90px 0;}
+
+#heading p.main {top:0;left:0;color:#111;}
+#heading p.main_highlight {top:2px;left:2px;color:#fff;}
+#heading p.main_shadow { top:-1px;left:-1px;color:#aaa;}
+
+
+#body {font-size:18px; font-family:Georgia; font-weight:normal;}
+#body p {text-align: center;width:350px;margin:160px auto 0;}
+
+#background {}
+
+
+/* Signature */
+#sign_button {position:absolute; top:0; left:0; width:100%; height:100%;text-indent:-9999px;}
+
+#sign form {width: 222px;background-color: #eee;padding:5px;border:10px solid #d7c700;}
+#sign form #signature_note {width: 200px;height:60px;border:2px solid #eee;background:#fafafa;padding:10px;margin:0;}
+#sign form #signature_name {width: 200px;height:20px;border:2px solid #eee;background:#fafafa;padding:10px;margin:0;}
+#sign form #signature_submit {display:block; margin: 10px 0;width: 200px;}
+
+#signature_layer {position:absolute; top:0; left:50%;background-color:#101;}
+
+.signature {width: 200px;background: url('/images/back.png') #eee;border: 1px solid #eee;padding:5px;}
+
+.signature_note {font-size: 12px; line-height:18px; font-family: Georgia;}
+.signature_name {font-size: 16px; line-height:18px; font-family: Georgia;font-style:italic;}
+
+div.signature_note {margin:0;}
+input.signature_name, div.signature_name {margin:10px 0 0;}
+div.signature_name span {font-size:10px;font-family:Helvetica;font-weight:bold;padding: 0 5px 0 0;}
+
+/* Publish */
+#publish_tools {position:absolute;top:0;padding: 5px;border-width: 0 10px 10px 0; border-color:#d7c700; border-style:solid;}

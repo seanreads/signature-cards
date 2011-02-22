@@ -1,0 +1,78 @@
+<div id='card'>
+
+	<div id='heading'>
+		<p class='main_highlight'><%= @card.heading %></p>
+		<p class='main_shadow'><%= @card.heading %></p>
+		<p class='main'><%= @card.heading %></p>
+	</div>
+	
+	<div id='body'>
+		<p><%= @card.body %></p>
+	</div>
+	
+</div>
+
+<div id="signature_layer">
+	
+	<% @signatures.each{|signature| 
+		x = signature.x
+		y = signature.y
+	%>
+	
+	<div class='signature' style='position:absolute;top:<%= y -%>px;left:<%= x -%>px'>
+		<div class='signature_note'><%= signature.note %></div>
+		<div class='signature_name'><span>~</span><%= signature.name %></div>
+	</div>
+	
+	<% } %>
+</div>
+
+<a id='sign_button'>sign card</a>
+<div id='sign' style="display:none;position:absolute;top:0;left:0;">
+ <% form_for :signature, @signature, :url => signatures_path do |f| %>
+      <%= f.text_area :note,  {:id => 'signature_note',:class => 'signature_note',:value => 'your note'} %>
+      <%= f.text_area :name, {:id => 'signature_name',:class => 'signature_name',:value => 'your name'} %>
+      <%= f.hidden_field :card_id, :value => @card[:uuid] %>
+      <%= f.hidden_field :x, {:id => 'x_field', :value => '200'}  %>
+      <%= f.hidden_field :y, {:id => 'y_field', :value => '400'} %>
+      <%= submit_tag 'Sign', {:id => 'signature_submit'} %>
+<% end %>
+</div>
+
+
+<div class='background'></div>
+
+<script type='text/javascript'>
+
+document.observe('dom:loaded', function(){
+
+	$('sign_button').observe('click', function(event){
+		// get mouse target
+		var x_location = event['pageX']
+		var y_location = event['pageY']
+		var x_location_from_center = x_location - (window.innerWidth/2)
+		
+		// set x, y
+		$('x_field').setValue(x_location_from_center)
+		$('y_field').setValue(y_location)
+		
+		// move form
+		var sign = $('sign')
+		sign.setStyle({'top':y_location+'px','left':x_location+'px'})
+		sign.show()
+	});
+
+
+});
+
+
+function debug(n){
+		s= ''
+		for (prop in n) {
+			s+=prop+"  **  ";
+		}
+		alert(s)
+
+}
+
+</script>
